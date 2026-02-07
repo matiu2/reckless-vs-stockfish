@@ -1,0 +1,33 @@
+[package]
+name = "reckless-vs-stockfish"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Run chess engine matches between Stockfish and Reckless"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/matiu/reckless-vs-stockfish"
+keywords = ["chess", "stockfish", "uci"]
+categories = ["games"]
+
+[dependencies]
+clap = { version = "4.5.57", features = ["derive"] }
+color-eyre = "0.6.5"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+shakmaty = "0.27.3"
+tokio = { version = "1.49.0", features = ["full"] }
+tracing = "0.1.44"
+tracing-error = "0.2.1"
+tracing-subscriber = { version = "0.3.22", features = ["env-filter"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+pedantic = { level = "deny", priority = -1 }
+nursery = { level = "deny", priority = -1 }
+cargo = { level = "deny", priority = -1 }
+# Allow multiple versions of transitive dependencies
+multiple_crate_versions = "allow"
